@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+
+:root {
+  /* Surface */
+  --bg-base: #f0f2f8;
+  --bg-surface: #ffffff;
+  --bg-raised: #f7f8fc;
+  --bg-overlay: #eef0f7;
+
+  /* Border */
+  --border-default: rgba(0, 0, 0, 0.09);
+  --border-strong: rgba(0, 0, 0, 0.18);
+
+  /* Text */
+  --text-primary: #0f1424;
+  --text-secondary: #4a5280;
+  --text-muted: #8b93c0;
+
+  /* Brand */
+  --brand: #2952e3;
+  --brand-light: #dde6ff;
+  --brand-dark: #1732b8;
+
+  /* Semantic */
+  --green: #16a34a;
+  --green-bg: #dcfce7;
+  --red: #dc2626;
+  --red-bg: #fee2e2;
+  --amber: #d97706;
+  --amber-bg: #fef3c7;
+  --purple: #7c3aed;
+  --purple-bg: #ede9fe;
+  --teal: #0d9488;
+  --teal-bg: #ccfbf1;
+
+  /* Chart palette */
+  --c1: #2952e3;
+  --c2: #7c3aed;
+  --c3: #0d9488;
+  --c4: #d97706;
+  --c5: #dc2626;
+}
+
+.dark {
+  --bg-base: #0b0e1a;
+  --bg-surface: #111527;
+  --bg-raised: #161b31;
+  --bg-overlay: #1d2340;
+
+  --border-default: rgba(234, 18, 212, 0.8);
+  --border-strong: rgba(18, 234, 242, 0.8);
+
+  --text-primary: #e8eaf6;
+  --text-secondary: #9ba3c9;
+  --text-muted: #5a6490;
+
+  --brand: #4a7fff;
+  --brand-light: #1a2a5e;
+  --brand-dark: #89aaff;
+
+  --green: #5EE232;
+  --green-bg: #052e16;
+  --red: #f87171;
+  --red-bg: #3f0f0f;
+  --amber: #E9F32E;
+  --amber-bg: #3f2a04;
+  --purple: #FF1F71;
+  --purple-bg: #2e1a6e;
+  --teal: #73FDF4;
+  --teal-bg: #042a26;
+
+  --c1: #73FDF4;
+  --c2: #FF1F71;
+  --c3: #5EE232;
+  --c4: #E9F32E;
+  --c5: #FF8859;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ── Utility classes ────────────────────────────────────────────────────────── */
+
+.glass {
+  @apply backdrop-blur-md bg-gradient-to-br from-cyan-500/5 to-cyan-600/5 border border-cyan-500/20;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+}
+
+.button {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(46, 226, 236, 0.8);
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 0.5px solid var(--border-default);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(227, 37, 108, 0.8);
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.value-xl {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.section-title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+/* ── Table ───────────────────────────────────────────────────────────────────── */
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.dash-table thead tr {
+  background: var(--bg-raised);
+}
+
+.dash-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.dash-table td {
+  padding: 10px 14px;
+  color: var(--text-primary);
+  border-top: 0.5px solid var(--border-default);
+}
+
+.dash-table tbody tr:hover td {
+  background: var(--bg-raised);
+}
+
+/* ── Badge ───────────────────────────────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-pass {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.badge-fail {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.badge-warn {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+/* ── Transitions ─────────────────────────────────────────────────────────────── */
+
+.fade-in {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
